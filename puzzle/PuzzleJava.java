@@ -35,6 +35,25 @@ public class PuzzleJava {
         return randWords;
       }
 
+      public void getRandomWord(ArrayList<String> list) {
+        ArrayList<ArrayList<String>> words = new ArrayList<>();
+        words.add(getNewPass(8));
+        int index = randMachine.nextInt(words.size());
 
+        System.out.println("New random password: " + list.get(index));
+        
+        
+      }
 
+      public ArrayList<String> randomizedArray(int length){
+        ArrayList<String> randomized = getNewPass(length);
+        for (int i = 0; i < randomized.size(); i++){
+          int index = randMachine.nextInt(randomized.size());
+          String temp = randomized.get(i);
+          randomized.set(i, randomized.get(index));
+          randomized.set(index, temp);
+          System.out.println(randomized);
+        }
+        return randomized;
+      }
 }
