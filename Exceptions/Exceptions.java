@@ -9,14 +9,25 @@ public class Exceptions {
     list.add("goodbye world");
 
     for(int x = 0; x < list.size(); x++) {
-      if (list.get(x) instanceof Integer){
-      Integer castedValue = (Integer) list.get(x);
-      System.out.println(castedValue);
-    } else {
-      if (list.get(x) instanceof String){
-        System.err.println(list.get(x));
-      };
-    }
+      try {
+        Integer castedValue = (Integer) list.get(x);
+        System.out.println(castedValue);
+        }
+      catch (ClassCastException err) {
+        System.err.println("Error: There is an error in the following Index or Value");
+        System.err.println("Index: " + x);
+        System.err.println("Value: " + list.get(x));
+        }
+
+
+    //   if (list.get(x) instanceof Integer){
+    //   Integer castedValue = (Integer) list.get(x);
+    //   System.out.println(castedValue);
+    // } else {
+    //   if (list.get(x) instanceof String){
+    //     System.err.println(list.get(x));
+    //   };
+    // }
     }
   }
 }
