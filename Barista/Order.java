@@ -47,7 +47,8 @@ public class Order {
     for (Item item : this.items){
       System.out.printf("%s\n", item.getName());
     }
-    System.out.printf("Your total is: %.2f", this.getTotal(this));
+    System.out.printf("Your total is: %.2f \n", this.getTotal(this));
+    System.out.println(getStatusMessage(this.ready));
   }
   }
 
