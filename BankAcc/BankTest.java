@@ -10,7 +10,7 @@ public class BankTest {
     // System.out.println(Sajeda.deposit(false, 10));
     // System.out.println(Sajeda.withdraw(false, 100));
 
-    // System.out.println(Emil.getAccNum());
+    System.out.println(Emil.getAccNum());
 
 
     

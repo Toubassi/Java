@@ -29,7 +29,6 @@ public class BankAcc {
 				for (int i = 0; i < 10; i++){
 					accountNum += (random.nextInt(0, 10));
 				}
-				System.out.println(accountNum);
 				return accountNum;
 			};
 
