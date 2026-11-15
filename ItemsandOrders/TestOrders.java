@@ -24,9 +24,9 @@ public class TestOrders {
     for (int i = 0; i < order1.items.size(); i++) {
       order1.total += order1.items.get(i).price;
     }
-    // for (int i = 0; i < order2.items.size(); i++) {
-    //   order2.total += order2.items.get(i).price;
-    // }
+    for (int i = 0; i < order2.items.size(); i++) {
+      order2.total += order2.items.get(i).price;
+    }
     // for (int i = 0; i < order3.items.size(); i++) {
     //   order3.total += order3.items.get(i).price;
     // }

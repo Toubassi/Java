@@ -6,6 +6,8 @@ public class Order {
   boolean ready;
   ArrayList<Item> items = new ArrayList<>();
 
+  
+
   Order(String name, double total, boolean ready){
     this.name = name;
     this.total = total;

@@ -17,9 +17,11 @@ public class PuzzleJava {
         return String.valueOf(alphabets[result]);  
       }
       
-      public String generatePass(){
+      public String generatePass(int num){
         String randomPass = new String();
-        for (int i = 0; i < 8; i++){
+        String randNum = Integer.toString(randMachine.nextInt(10));
+        randomPass += randNum;
+        for (int i = 0; i < num; i++){
           randomPass += getRandomLetter();
         }
         return randomPass;
@@ -29,7 +31,7 @@ public class PuzzleJava {
         // get (length) random words
         ArrayList<String> randWords = new ArrayList<String>();
         for (int i = 0; i < length; i++){
-          randWords.add(generatePass());
+          randWords.add(generatePass(9));
 
         };
         return randWords;

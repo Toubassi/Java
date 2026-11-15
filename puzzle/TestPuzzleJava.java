@@ -12,8 +12,8 @@ public class TestPuzzleJava {
                 //..
         // Write your other test cases here.
         //..
-        // ArrayList<String> first = generator.getNewPass(8);
-        ArrayList<String> second = generator.getNewPass(5);
+        ArrayList<String> first = generator.getNewPass(8);
+        // ArrayList<String> second = generator.getNewPass(5);
         // System.out.println(generator.getRandomLetter());
         // System.out.println(generator.generatePass());
         // System.out.println(first);
@@ -23,7 +23,9 @@ public class TestPuzzleJava {
         // generator.randomizedArray(second.size());
         
         // System.out.println(generator.randomizedArray(second));
-        ArrayList<String> shuffled = generator.randomizedArray(second.size());
-        System.out.println(shuffled);
+        // ArrayList<String> shuffled = generator.randomizedArray(second.size());
+        // System.out.println(shuffled);
+        System.out.println(generator.generatePass(9));
+
     }
 }
