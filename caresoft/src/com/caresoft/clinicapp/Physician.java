@@ -5,23 +5,30 @@ import java.util.Date;
 
 public class Physician extends User implements HIPAACompliantUser {
 	private ArrayList<String> patientNotes;
-	private String IDcopy;
+	private int IDcopy;
 	
 	// TO DO: Constructor that takes an IDcopy
-	Physician(String IDcopy){
-		this.setIDcopy(IDcopy);
+	Physician(int id){
+		this.id = id;
+		this.patientNotes = new ArrayList<String>();
+
 	}
     // TO DO: Implement HIPAACompliantUser!
 	@Override
 	public boolean assignPin(int pin) {
 		// TODO Auto-generated method stub
-		return false;
+		if (pin < 1000 || pin > 9999) {
+	        return false;
+	    }
+
+	    setPin(pin);
+	    return true;
 	}
 	
 	@Override
 	public boolean accessAuthorized(Integer confirmedAuthID) {
 		// TODO Auto-generated method stub
-		return false;
+		return id != null && id.equals(confirmedAuthID);
 	}
 	
 	
@@ -35,12 +42,15 @@ public class Physician extends User implements HIPAACompliantUser {
     }
 	
 	// TO DO: Setters & Getters
-	public String getIDcopy() {
+	public int getIDcopy() {
 		return IDcopy;
 	}
-	public void setIDcopy(String iDcopy) {
+	public void setIDcopy(int iDcopy) {
 		IDcopy = iDcopy;
 	}
+
+
+	
 
 	
 	

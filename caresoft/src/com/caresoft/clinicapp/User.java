@@ -1,6 +1,9 @@
 package com.caresoft.clinicapp;
+import java.util.Random;
 
 public class User {
+	Random random = new Random();
+	
 	protected Integer id;
     protected int pin;
     

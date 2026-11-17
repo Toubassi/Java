@@ -4,34 +4,43 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class AdminUser extends User implements HIPAACompliantUser, HIPAACompliantAdmin {
-	private Integer employeeID;
+	private Integer id;
     private String role;
     private ArrayList<String> securityIncidents;
     
     // TO DO: Implement a constructor that takes an ID and a role
-    AdminUser(Integer employeeID, String role){
-    	this.setEmployeeID(employeeID);
-    	this.setRole(role);
+    AdminUser(Integer id, String role){
+    	this.id = id;
+    	this.role = role;
+    	this.securityIncidents = new ArrayList<>();
     }
     // TO DO: Implement HIPAACompliantUser!
     
     @Override
-    public ArrayList<String> reportSecurityIncidents() {
-    	// TODO Auto-generated method stub
-    	return null;
-    }
-    @Override
     public boolean assignPin(int pin) {
-    	// TODO Auto-generated method stub
-    	return false;
+        if (pin < 100000) {
+            return false;
+        }
+
+        setPin(pin);
+        return true;
     }
-    @Override
-    public boolean accessAuthorized(Integer confirmedAuthID) {
-    	// TODO Auto-generated method stub
-    	return false;
-    }
+	
+	@Override
+	public boolean accessAuthorized(Integer confirmedAuthID) {
+	    if (id != null && id.equals(confirmedAuthID)) {
+	        return true;
+	    }
+	    authIncident();
+	    return false;
+	}
     
     // TO DO: Implement HIPAACompliantAdmin!
+	@Override
+	public ArrayList<String> reportSecurityIncidents() {
+		// TODO Auto-generated method stub
+		return securityIncidents;
+	}
     
     public void newIncident(String notes) {
         String report = String.format(
@@ -51,12 +60,12 @@ public class AdminUser extends User implements HIPAACompliantUser, HIPAAComplian
 
     // TO DO: Setters & Getters
 	public Integer getEmployeeID() {
-		return employeeID;
+		return id;
 	}
 
 
-	public void setEmployeeID(Integer employeeID) {
-		this.employeeID = employeeID;
+	public void setEmployeeID(Integer id) {
+		this.id = id;
 	}
 
 
@@ -68,5 +77,7 @@ public class AdminUser extends User implements HIPAACompliantUser, HIPAAComplian
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	
     
 }
