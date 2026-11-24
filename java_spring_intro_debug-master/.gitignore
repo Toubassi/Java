@@ -1,0 +1,12 @@
+target/
+.mvn/
+*.class
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+.sts4-cache/
+.DS_Store
